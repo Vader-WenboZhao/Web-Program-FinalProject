@@ -1,0 +1,27 @@
+h1 {
+    font-family:"Times New Roman", Times, serif;
+    margin: 15px;
+    text-align: center;
+    font-size: 70px;
+    font-weight:bold;
+    text-shadow: 4px 4px #AFAFAF;
+}
+
+img[id="homepage_img"] {
+    align: center;
+    margin: 15px;
+    display: block;
+    margin: auto;
+}
+
+body {
+    font-size:100%;
+}
+
+div[id="function"] {
+    text-align: center;
+}
+
+a {
+    color: #ffffff;
+}

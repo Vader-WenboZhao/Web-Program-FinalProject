@@ -1,0 +1,97 @@
+body {
+    position: relative;
+    left: 40px;
+}
+
+h1 {
+    position: relative;
+    left: 40px;
+    top: 20px;
+    font-family:"Times New Roman", Times, serif;
+    font-weight: 700;
+}
+
+h2 {
+    font-family:"Trebuchet MS", Helvetica, sans-serif;
+    font-weight: 700;
+}
+
+img {
+    position: relative;
+    top: 10px;
+    left: 20px;
+    margin: 15px;
+}
+
+div[id="function"] {
+    text-align: center;
+    position: sticky;
+    top: 5px;
+}
+
+div[id="write_review"] {
+    margin: 15px;
+    position: relative;
+    left: 20px;
+}
+
+div[id="like"] {
+    margin: 5px;
+    position: relative;
+    left: 40px;
+}
+
+div[id="like"] button {
+    width: 250px;
+    border-radius: 8px;
+    color: red;
+}
+
+div[id="w_info"] {
+  position: absolute;
+  left: 300px;
+  top: 120px;
+}
+
+div[id="m_info"] {
+  position: absolute;
+  left: 350px;
+  top: 120px;
+}
+
+ul[id="m_info"] > li {
+    font-weight: bold;
+}
+
+div[id="review_region"] {
+    position: absolute;
+    left: 700px;
+    top: 100px;
+}
+
+select[id="star"], input[id="message"], button[id="submit_review"] {
+    border-radius: 8px;
+    margin: 5px;
+}
+
+.list li {
+    font-size: 20px;
+    position: relative;
+    top: 20px;
+}
+
+.list_item {
+    margin: 10px;
+}
+
+li[id="review_piece"] {
+    width: 450px;
+    word-wrap: break-word;
+    word-break: normal;
+    font-family:"Comic Sans MS", sans-serif;
+}
+
+h2[id="review"] {
+    position: relative;
+    left: 20px;
+}

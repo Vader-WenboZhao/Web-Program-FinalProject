@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Wenbo Movie</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="/static/homepage.css">
+    </head>
+
+    <body>
+        <h1>Wenbo Movie</h1>
+        <hr>
+        <div id="function">
+          <h2>
+              <button type="button" class="btn btn-success btn-lg" ><a href="{% url 'all_movie' %}">电影列表</a></button>
+              <button type="button" class="btn btn-primary btn-lg"><a href="{% url 'all_worker' %}">影人列表</a></button>
+              <button type="button" class="btn btn-danger btn-lg"><a href="{% url 'user' %}">我的账户</a></button>
+              <button type="button" class="btn btn-info btn-lg"><a href="{% url 'search_view' %}">搜索</a></button>
+          </h2>
+        </div>
+        <img id="homepage_img" src="/static/pictures/homepage.jpg" width="1000" height="500"/>
+    </body>
+</html>

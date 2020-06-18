@@ -1,0 +1,16 @@
+{% extends "movies/base.html" %}
+
+{% block title %}
+    电影列表
+{% endblock %}
+
+{% block body %}
+    <h1>电影列表</h1>
+    <ul class="list">
+        {% for movie in movies %}
+            <li>
+                <a class="list_item" href="{% url 'movie' movie.imdb_num %}">{{ movie.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

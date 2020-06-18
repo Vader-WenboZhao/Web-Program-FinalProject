@@ -1,0 +1,16 @@
+{% extends "movies/base.html" %}
+
+{% block title %}
+    影人列表
+{% endblock %}
+
+{% block body %}
+    <h1>影人列表</h1>
+    <ul class="list">
+        {% for worker in workers %}
+            <li>
+                <a class="list_item" href="{% url 'worker' worker.imdb_num %}">{{ worker.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

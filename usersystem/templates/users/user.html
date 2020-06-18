@@ -1,0 +1,51 @@
+{% extends "users/base.html" %}
+
+{% block title %}
+    用户页面
+{% endblock %}
+
+{% block body %}
+
+<div id="function_u">
+  <button class="btn btn-outline-primary"><a href="{% url 'homepage' %}">回到主页</a></button>
+  <button class="btn btn-outline-success"><a href="{% url 'all_movie' %}">电影列表</a></button>
+  <button class="btn btn-outline-danger"><a href="{% url 'all_worker' %}">影人列表</a></button>
+  <button class="btn btn-outline-warning"><a href="{% url 'search_view' %}">搜索</a></button><br>
+</div>
+
+<h1>欢迎回来, {{ user.username }}!</h1>
+
+<div id="user_log_info">
+    <br>
+    已登陆账号: {{ user.username }} <button class="btn btn-outline-dark"><a href="{% url 'logout' %}">注销</a></button>
+</div>
+
+<div id="like_movies">
+    <h2>喜欢的电影</h2>
+    {% if has_lm %}
+        <ul>
+            {% for lm in likemovies %}
+                <li><a href="{% url 'movie' lm.imdb_num %}">{{ lm.name }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <ul>
+            <li>没有收藏任何电影</li>
+        </ul>
+    {% endif %}
+</div>
+<div id="like_workers">
+    <h2>喜欢的影人</h2>
+    {% if has_lw %}
+        <ul>
+            {% for lw in likeworkers %}
+                <li><a href="{% url 'worker' lw.imdb_num %}">{{ lw.name }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <ul>
+            <li>没有收藏任何影人</li>
+        </ul>
+    {% endif %}
+</div>
+{% endblock %}

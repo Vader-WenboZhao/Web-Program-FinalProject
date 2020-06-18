@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <title>{% block title %}{% endblock %}</title>
+        <script type="text/javascript" src="/static/movie.js"></script>
+        <link rel="stylesheet" type="text/css" href="/static/movie_style.css">
+    </head>
+
+    <body>
+        <div id="function">
+          <button class="btn btn-outline-primary"><a href="{% url 'homepage' %}">回到主页</a></button>
+          <button class="btn btn-outline-success"><a href="{% url 'user' %}">我的账户</a></button>
+          <button class="btn btn-outline-danger"><a href="{% url 'all_movie' %}">电影列表</a></button>
+          <button class="btn btn-outline-warning"><a href="{% url 'all_worker' %}">影人列表</a></button>
+          <button class="btn btn-outline-info"><a href="{% url 'search_view' %}">搜索</a></button><br>
+        </div>
+        <h1>{% block head %}{% endblock %}</h1>
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,45 @@
+{% extends "movies/base.html" %}
+
+{% block title %}
+    影人详情页
+{% endblock %}
+
+{% block head %}
+    {{ worker.name }}  {{ worker.english_name }}
+{% endblock %}
+
+{% block body %}
+    <img src="{{img_link}}" width="250" height="343"/>
+    <div id="w_info">
+        <ul>
+            <li><font color="grey">性别: </font>{{ worker.gender }}</li>
+            <li><font color="grey">出生日期: </font>{{ worker.birthday }}</li>
+            <li><font color="grey">职业: </font>{{ work_type }}</li>
+            <li><font color="grey">参演电影:</font>
+                <ul>
+                    {% for m in movies %}
+                        <li><a href="{% url 'movie' m.imdb_num %}">{{ m.name }}</a></li>
+                    {% empty %}
+                        <li>没有参演过任何电影</li>
+                    {% endfor %}
+                </ul>
+            </li>
+            <li><font color="grey">IMDb编号: </font><a href="{{imdb_link}}">{{ worker.imdb_num }}</a></li>
+        </ul>
+    </div>
+    {% if able_like %}
+        <div id="like">
+            {% if can_like %}
+                <form action="{% url 'like_w' worker.imdb_num %}" method="post">
+                    {% csrf_token %}
+                    <button name="like" value=1 class="btn btn-warning" type="submit">收藏</button>
+                </form>
+            {% else %}
+                <form action="{% url 'like_w' worker.imdb_num %}" method="post">
+                    {% csrf_token %}
+                    <button name="like" value=0 class="btn btn-warning" type="submit">❤️已收藏</button>
+                </form>
+            {% endif %}
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "users/base.html" %}
+
+{% block title %}
+    注册
+{% endblock %}
+
+{% block head %}
+    <script type="text/javascript" src="/static/register.js"></script>
+    <button id="backhome" class="btn btn-info"><a href="{% url 'homepage' %}" style="color: #ffffff;" >回到主页</a></button>
+{% endblock %}
+
+{% block body %}
+
+{% if message == "已被注册" %}
+    <body onload="javascript:window.alert('该用户名已被注册')"/>
+{% endif %}
+
+<h1>注册</h1>
+<br>
+<form action="{% url 'register' %}" method="post">
+    {% csrf_token %}
+    <input id="username_input" name="username" type="text" autocomplete="off" autofocus placeholder="用户名"/>
+    <input id="password_input" name="password" type="password" autocomplete="off" autofocus placeholder="密码"/>
+    <input name="email" type="text" autocomplete="off" autofocus placeholder="Email"/>
+    <input id="register_button"type="submit" value="注册"/>
+</form>
+{% endblock %}

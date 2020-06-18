@@ -1,0 +1,73 @@
+{% extends "movies/base.html" %}
+
+{% block title %}
+    电影详情页
+{% endblock %}
+
+{% block head %}
+    <script type="text/javascript" src="/static/review.js"></script>
+    <h1>{{ movie.name }}</h1>
+{% endblock %}
+
+{% block body %}
+    <img src="{{img_link}}" width="300" height="450"/>
+    <div id="m_info">
+        <ul>
+            <li><font color="grey">导演: </font>{{ director }}</li>
+            <li><font color="grey">主演列表:</font>
+                <ul id="m_info">
+                    {% for ac in actors %}
+                        <li><a href="{% url 'worker' ac.imdb_num %}">{{ ac.name }}</a></li>
+                    {% empty %}
+                        <li>没有演员</li>
+                    {% endfor %}
+                </ul>
+            </li>
+            <li><font color="grey">类型: </font>{{ movie.type }}</li>
+            <li><font color="grey">国家/地区: </font>{{ movie.country }}</li>
+            <li><font color="grey">语言: </font>{{ movie.language }}</li>
+            <li><font color="grey">时长: </font>{{ movie.duration }}</li>
+            <li><font color="grey">上映时间: </font>{{ movie.date }}</li>
+            <li><font color="grey">IMDb编号: </font><a href="{{imdb_link}}">{{ movie.imdb_num }}</a></li>
+        </ul>
+    </div>
+    {% if able_like %}
+        <div id="like">
+            {% if can_like %}
+                <form action="{% url 'like_m' movie.imdb_num %}" method="post">
+                    {% csrf_token %}
+                    <button name="like" value=1 class="btn btn-warning" type="submit">收藏</button>
+                </form>
+            {% else %}
+                <form action="{% url 'like_m' movie.imdb_num %}" method="post">
+                    {% csrf_token %}
+                    <button name="like" value=0 class="btn btn-warning" type="submit">❤️已收藏</button>
+                </form>
+            {% endif %}
+        </div>
+    {% endif %}
+    <hr>
+    <div id="review_region">
+        <h2 id="review">评论区:</h2>
+
+        {% if able_like %}
+            <div id="write_review">
+                <form action="{% url 'review' movie.imdb_num %}" method="post">
+                    {% csrf_token %}
+                    <select name="star" id="star">
+                        {% for num in star_list %}
+                            <option value="{{ num }}">{{ num }}</option>
+                        {% endfor %}
+                    </select>
+                    <input id="message" name="review_txt" autocomplete="off" autofocus placeholder="写下新的评论" type="text"/>
+                    <button id="submit_review" type="submit" class="btn btn-outline-primary">发表评论</button>
+                </form>
+            </div>
+        {% endif %}
+        <ul id="review_records">
+            {% for r in reviews %}
+                <li id="review_piece">❤️<font color="red">×{{ r.star }}</font>  -- {{ r.review }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

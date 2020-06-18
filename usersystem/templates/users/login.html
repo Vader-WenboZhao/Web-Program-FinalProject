@@ -1,0 +1,36 @@
+{% extends "users/base.html" %}
+
+{% block title %}
+    登陆
+{% endblock %}
+
+{% block head %}
+    <script type="text/javascript" src="/static/login.js"></script>
+    <button id="backhome" class="btn btn-info"><a href="{% url 'homepage' %}" style="color: #ffffff;" >回到主页</a></button>
+{% endblock %}
+
+{% block body %}
+<h1>登陆</h1>
+
+{% if message == "注册成功" %}
+    <body onload="javascript:window.alert('注册成功')"/>
+{% endif %}
+
+{% if message == "不存在或密码错误" %}
+    <body onload="javascript:window.alert('该用户不存在或密码错误')"/>
+{% endif %}
+
+<br>
+<form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+    <input id="username_input" name="username" type="text" autocomplete="off" autofocus placeholder="用户名"/>
+    <input id="password_input" name="password" type="password" autocomplete="off" autofocus placeholder="密码"/>
+    <input id="login_button" type="submit" value="登陆"/>
+</form>
+<div id="register">
+    <form action="{% url 'register_jump' %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="注册用户"/>
+    </form>
+</div>
+{% endblock %}

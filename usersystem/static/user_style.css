@@ -1,0 +1,82 @@
+body {
+    position: relative;
+    left: 40px;
+    top: 20px;
+}
+
+h1 {
+    position: relative;
+    left: 40px;
+    top: 20px;
+    font-family:"Times New Roman", Times, serif;
+    font-weight: 700;
+}
+
+div[id="like_movies"] {
+    margin: 10px;
+    position: absolute;
+    left: 40px;
+    top: 200px;
+}
+
+div[id="like_workers"] {
+    margin: 10px;
+    position: absolute;
+    left: 340px;
+    top: 200px;
+}
+
+div[id="user_log_info"] {
+    font-size: 20px;
+    position: relative;
+    left: 20px;
+    margin: 30px;
+}
+
+div[id="function_u"] {
+    text-align: center;
+    position: sticky;
+    top: 5px;
+}
+
+
+div[id="function_s"] {
+    text-align: center;
+    position: sticky;
+    top: 5px;
+}
+
+input[id="search_input"] {
+    position: relative;
+    top: 20px;
+    left: 15px;
+    width: 1200px;
+}
+
+button[id="start_search"] {
+    margin: 15px;
+    position: relative;
+}
+
+div[id="result_m"] {
+  position: absolute;
+  left: 15px;
+  top: 270px;
+}
+
+div[id="result_w"] {
+    position: absolute;
+    left: 300px;
+    top: 270px;
+}
+
+div[id="register"] {
+    position: absolute;
+    top: 118px;
+    left: 415px;
+}
+
+button[id="backhome"] {
+    position: sticky;
+    top: 5px;
+}
